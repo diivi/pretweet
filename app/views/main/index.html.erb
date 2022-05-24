@@ -1,0 +1,14 @@
+<h1>Main Page</h1>
+<%= 2+2 %>
+<% if flash[:notice] %>
+    <p style="color:green"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:alert] %>
+    <p style="color:red"><%= flash[:alert] %></p>
+<% end %>
+<% if Current.user %>
+    <p>Logged in as  <%= Current.user.email %>!</p>
+    <%= button_to "Log out", logout_path , method: :delete %>
+<% end %>
+
+
