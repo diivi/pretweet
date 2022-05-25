@@ -8,7 +8,16 @@ Rails.application.routes.draw do
   get "sign-in" => "sessions#new"
   post "sign-in" => "sessions#create"
 
+  get "password" => "passwords#edit", :as => 'edit_password'
+  patch "password" => "passwords#update"
+
   delete "logout" => "sessions#destroy"
+
+  get "password/reset" => "password_resets#new"
+  post "password/reset" => "password_resets#create"
+
+  get "password/reset/edit" => "password_resets#edit"
+  patch "password/reset/edit" => "password_resets#update"
   # Defines the root path route ("/")
   root "main#index"
 end
