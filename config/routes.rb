@@ -18,6 +18,10 @@ Rails.application.routes.draw do
 
   get "password/reset/edit" => "password_resets#edit"
   patch "password/reset/edit" => "password_resets#update"
-  # Defines the root path route ("/")
+
+  get "/auth/twitter/callback" => "omniauth_callbacks#twitter"
+
+  resources :twitter_accounts 
+
   root "main#index"
 end

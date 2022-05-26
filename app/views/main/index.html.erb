@@ -9,6 +9,7 @@
 <% if Current.user %>
     <p>Logged in as  <%= Current.user.email %>!</p>
     <%= button_to "Log out", logout_path , method: :delete %>
+    <%= button_to "Connect Twitter","/auth/twitter", data: {turbo: "false"}, method: :post%>
 <% end %>
 
 

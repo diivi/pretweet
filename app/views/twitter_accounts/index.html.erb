@@ -1,0 +1,12 @@
+<h1>Connected Twitter Accounts</h1>
+<% if @twitter_accounts.empty? %>
+  <p>You have no connected Twitter accounts.</p>
+<% else %>
+        <% @twitter_accounts.each do |twitter_account| %>
+        <%= image_tag twitter_account.image %>
+        <h3><%= link_to "@#{twitter_account.username}", "https://twitter.com/#{twitter_account.username}",target: :_blank %></h3>
+        <%= button_to "Disconnect", twitter_account, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+        <br/><br/>
+        <% end %>
+<% end %>
+<%= button_to "Connect a Twitter Account", "/auth/twitter", method: :post, data: {turbo: "false"} %>
