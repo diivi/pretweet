@@ -6,6 +6,9 @@
 <%= link_to "View", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
 <% else %>
 <p><%= l tweet.publish_at, format: :long %></p>
+<%= link_to "Edit Tweet", edit_tweet_path(tweet) %>
+<%= button_to "Delete Scheduled Tweet", tweet, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}%>
+
 <% end %>
 <br/>
 <br/>
