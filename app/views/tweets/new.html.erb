@@ -1,0 +1,16 @@
+<h1>Schedule a Tweet</h1>
+
+<%= form_with model: @tweet do |form|%>
+    <% if form.object.errors.any? %>
+            <% form.object.errors.full_messages.each do |msg| %>
+              <p style="color:red">  <%= msg %> </p>
+            <% end %>
+    <% end %>
+    <%= form.label :twitter_account_id%> <br/>
+    <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id,:username %><br/>
+    <%= form.label :body%><br/>
+    <%= form.text_area :body, rows: 5, cols: 40 %><br/>
+    <%= form.label :publish_at%><br/>
+    <%= form.datetime_select :publish_at%><br/>
+    <%= form.submit  "Schedule" %>
+<% end %>

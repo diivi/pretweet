@@ -1,0 +1,10 @@
+<h1>Tweets</h1>
+<% if Current.user.twitter_accounts.any?%>
+<%= link_to "Schedule a tweet",new_tweet_path%>
+<% else %>
+<%= button_to "Connect Twitter","/auth/twitter", data: {turbo: "false"}, method: :post%>
+<% end %>
+<br/>
+<br/>
+
+<%= render @tweets %>

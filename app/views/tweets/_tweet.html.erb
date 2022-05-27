@@ -1,0 +1,11 @@
+
+<%= image_tag tweet.twitter_account.image %>
+<%= tweet.twitter_account.username %> <br/>
+<%= tweet.body%>
+<% if  tweet.published? %>
+<%= link_to "View", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
+<% else %>
+<p><%= l tweet.publish_at, format: :long %></p>
+<% end %>
+<br/>
+<br/>
